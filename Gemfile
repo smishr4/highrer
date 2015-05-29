@@ -52,6 +52,7 @@ gem 'devise'
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
 gem 'cancan'
+gem "koala", "~> 2.0"
 gem 'byebug', '4.0.5'
 
 # Use ActiveModel has_secure_password

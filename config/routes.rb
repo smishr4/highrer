@@ -12,6 +12,7 @@ Rails.application.routes.draw do
 
   get '/user' => 'user_profile#show'
 
+
   post '/user/update' => 'user_profile#update'
   post '/search/:skillset' => 'search#search_users'
   get '/feed' => 'feed#index'

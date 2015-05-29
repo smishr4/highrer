@@ -5,6 +5,10 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable
 
   ##For updating user details
+
+
+  has_many :feeds, class_name: 'Feed'
+  has_and_belongs_to_many :skillsets, :class_name => 'Skillset', :join_table => 'users_skillsets'
   def update_omniauth(omniauth)
     token = omniauth['credentials']['token']
     self.provider = omniauth['provider']
@@ -71,9 +75,35 @@ class User < ActiveRecord::Base
     res
   end
 
+<<<<<<< HEAD
   def myfacebook(oauth_token)
     @facebook ||= Koala::Facebook::API.new(oauth_token)
   end
+=======
+  def to_small_hash
+    {
+      skillsets: self.skillsets,
+      id: self.id,
+    }
+  end
+
+  def to_hash
+    {
+      skillsets: self.skillsets,
+      id: self.id,
+      email: self.email,
+      first_name: self.first_name,
+      last_name: self.last_name,
+      profile_picture_url: self.profile_picture_url,
+    }
+  end
+
+  def friends
+    where(:uid => :friend_ids)
+  end
+
+
+>>>>>>> 97b01226648952fcf5426e3244455b36bd4752a4
   #habtm educations, work_experiences, skillsets
 
   # accepts_nested_attributes_for all of them.

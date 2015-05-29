@@ -1,15 +1,21 @@
 class UserProfileController < ApplicationController
+  before_action :authenticate_user!
 
 
   before_filter :find_user
 
-  private
-  def find_user
-    @user = User.find(params[:id]) if params[:id]
+  def show
+    render json: current_user, status: 200
+  end
+
+  #show other user's profile by id
+
+  def show_other
+    render json: User.find(params[:id]).to_hash, status: 200
   end
 
   def update
-    @user.update_attributes(params[:user])
+    current_user.update_attributes(params[:user])
     render json: {message: 'OK'}, status: 200
   end
 

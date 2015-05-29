@@ -1,4 +1,5 @@
 class RequestController < ApplicationController
+  before_action :authenticate_user!
 
   #post request seeker/employee
   #cancel request

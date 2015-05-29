@@ -11,12 +11,12 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
     result=@user.myfacebook(@user.token).get_connections("me","friends",:fields=>"id")
     friends_array=Hash[result.map(&:values).map(&:flatten)].keys
-    User.update(@user.id, :friendlist => friends_array)
+    User.update(@user.id, :friend_ids => friends_array)
 
     sign_in @user
-
     set_flash_message(:notice, :success, :kind => "Facebook") if is_navigational_format?
-    render json: {message: 'OK', user: @user}, status: 200
+    # render json: {message: 'OK', user: @user}, status: 200
+    redirect_to "/"
   end
 
   # def google_oauth2

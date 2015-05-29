@@ -3,8 +3,6 @@ class FeedController < ApplicationController
 
   before_action :authenticate_user!
 
-
-
   private
   def find_feed
     @feed = Feed.find(params[:id]) if params[:id]

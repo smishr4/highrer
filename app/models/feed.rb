@@ -11,4 +11,9 @@ class Feed < ActiveRecord::Base
   def receiver
     User.find(self.receiver_id)
   end
+
+  def cancel
+    self.status = Enums::CANCELLED
+    self.save
+  end
 end

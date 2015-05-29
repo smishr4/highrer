@@ -1,5 +1,8 @@
 class User < ActiveRecord::Base
 
 
-  #has_many skillsets, educations, work_experiences
+  #habtm educations, work_experiences, skillsets
+
+  # accepts_nested_attributes_for all of them.
+
 end

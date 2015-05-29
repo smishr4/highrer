@@ -1,0 +1,135 @@
+body {
+    background: #fafafa;
+}
+
+.hero-unit {
+    margin: 50px auto 0 auto;
+    width: 300px;
+}
+
+/* Bootstrap shortcomings */
+.col-centered{
+    float: none;
+    margin: 0 auto;
+}
+
+
+#facebookfieldset, #googlefieldset {
+  margin-top: 15px!important;
+  font-size: 11px;
+  border-radius: 10px;
+}
+.api-fieldset.true {
+  opacity: 1;
+}
+.login-container fieldset {
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
+
+
+.api-fieldset.true a {
+  cursor: pointer;
+}
+.zocial.facebook {
+  background-color: #4863ae;
+}
+.zocial.google, .zocial.facebook {
+  text-align: left;
+}
+.email-signin, .zocial.google, .zocial.facebook {
+  box-shadow: 2px 2px rgb(73, 73, 73);
+  border-radius: 6px;
+  height: 30px;
+}
+.api-fieldset a {
+  cursor: default;
+}
+.zocial, a.zocial {
+  border: 1px solid #777;
+  border-color: rgba(0,0,0,0.2);
+  border-bottom-color: #333;
+  border-bottom-color: rgba(0,0,0,0.4);
+  color: #fff;
+  -moz-box-shadow: inset 0 0.08em 0 rgba(255,255,255,0.4), inset 0 0 0.1em rgba(255,255,255,0.9);
+  -webkit-box-shadow: inset 0 0.08em 0 rgba(255,255,255,0.4), inset 0 0 0.1em rgba(255,255,255,0.9);
+  box-shadow: inset 0 0.08em 0 rgba(255,255,255,0.4), inset 0 0 0.1em rgba(255,255,255,0.9);
+  cursor: pointer;
+  display: inline-block;
+  font: bold 100%/2.1 "Lucida Grande", Tahoma, sans-serif;
+  padding: 0 .95em 0 0;
+  text-align: center;
+  text-decoration: none;
+  text-shadow: 0 1px 0 rgba(0,0,0,0.5);
+  white-space: nowrap;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+  position: relative;
+  -moz-border-radius: .3em;
+  -webkit-border-radius: .3em;
+  border-radius: .3em;
+  width: 100%;
+}
+.zocial {
+  background-image: -moz-linear-gradient(rgba(255,255,255,.1), rgba(255,255,255,.05) 49%, rgba(0,0,0,.05) 51%, rgba(0,0,0,.1));
+  background-image: -ms-linear-gradient(rgba(255,255,255,.1), rgba(255,255,255,.05) 49%, rgba(0,0,0,.05) 51%, rgba(0,0,0,.1));
+  background-image: -o-linear-gradient(rgba(255,255,255,.1), rgba(255,255,255,.05) 49%, rgba(0,0,0,.05) 51%, rgba(0,0,0,.1));
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255,255,255,.1)), color-stop(49%, rgba(255,255,255,.05)), color-stop(51%, rgba(0,0,0,.05)), to(rgba(0,0,0,.1)));
+  background-image: -webkit-linear-gradient(rgba(255,255,255,.1), rgba(255,255,255,.05) 49%, rgba(0,0,0,.05) 51%, rgba(0,0,0,.1));
+  background-image: linear-gradient(rgba(255,255,255,.1), rgba(255,255,255,.05) 49%, rgba(0,0,0,.05) 51%, rgba(0,0,0,.1));
+}
+.zocial, a.zocial {
+  border: 1px solid #777;
+  border-color: rgba(0,0,0,0.2);
+  border-bottom-color: #333;
+  border-bottom-color: rgba(0,0,0,0.4);
+  color: #fff;
+  -moz-box-shadow: inset 0 0.08em 0 rgba(255,255,255,0.4), inset 0 0 0.1em rgba(255,255,255,0.9);
+  -webkit-box-shadow: inset 0 0.08em 0 rgba(255,255,255,0.4), inset 0 0 0.1em rgba(255,255,255,0.9);
+  box-shadow: inset 0 0.08em 0 rgba(255,255,255,0.4), inset 0 0 0.1em rgba(255,255,255,0.9);
+  cursor: pointer;
+  display: inline-block;
+  font: bold 100%/2.1 "Lucida Grande", Tahoma, sans-serif;
+  padding: 0 .95em 0 0;
+  text-align: center;
+  text-decoration: none;
+  text-shadow: 0 1px 0 rgba(0,0,0,0.5);
+  white-space: nowrap;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+  position: relative;
+  -moz-border-radius: .3em;
+  -webkit-border-radius: .3em;
+  border-radius: .3em;
+  width: 100%;
+}
+
+
+.zocial.facebook:before {
+  content: "f";
+}
+.zocial:before {
+  content: "";
+  border-right: 0.075em solid rgba(0,0,0,0.1);
+  float: left;
+  font: 120%/1.65 zocial;
+  font-style: normal;
+  font-weight: normal;
+  margin: 0 0.5em 0 0;
+  padding: 0 0.5em;
+  text-align: center;
+  text-decoration: none;
+  text-transform: none;
+  -moz-box-shadow: 0.075em 0 0 rgba(255,255,255,0.25);
+  -webkit-box-shadow: 0.075em 0 0 rgba(255,255,255,0.25);
+  box-shadow: 0.075em 0 0 rgba(255,255,255,0.25);
+  -moz-font-smoothing: antialiased;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  height: 100%;
+  text-align: right;
+  padding-left: 70px;
+}

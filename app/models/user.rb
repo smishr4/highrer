@@ -75,11 +75,10 @@ class User < ActiveRecord::Base
     res
   end
 
-# <<<<<<< HEAD
   def myfacebook(oauth_token)
     @facebook ||= Koala::Facebook::API.new(oauth_token)
   end
-# =======
+
   def to_small_hash
     {
       skillsets: self.skillsets,
@@ -102,8 +101,6 @@ class User < ActiveRecord::Base
     where(:uid => :friend_ids)
   end
 
-
-# >>>>>>> 97b01226648952fcf5426e3244455b36bd4752a4
   #habtm educations, work_experiences, skillsets
 
   # accepts_nested_attributes_for all of them.

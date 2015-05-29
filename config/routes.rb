@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   # namespace :admin do
   #   root 'home#index'
   # end
+  get '/user' => 'user_profile#show'
   root 'home#index'
 
   get '/user' => 'user_profile#show'

@@ -1,9 +1,6 @@
 class UserProfileController < ApplicationController
   before_action :authenticate_user!
 
-
-  #before_filter :find_user
-
   def show
     debugger
     render json: current_user, status: 200

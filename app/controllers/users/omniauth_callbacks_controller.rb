@@ -18,7 +18,13 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     set_flash_message(:notice, :success, :kind => "Facebook") if is_navigational_format?
     # render json: {message: 'OK', user: @user}, status: 200
 
-    redirect_to "/?session=true"
+    redirect_to "/?session=#{authenticity_token}"
+  end
+
+  def authenticity_token
+    if current_user
+      form_authenticity_token
+    end
   end
 
   def google_oauth2

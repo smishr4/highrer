@@ -70,6 +70,10 @@ class User < ActiveRecord::Base
     end
     res
   end
+
+  def myfacebook(oauth_token)
+    @facebook ||= Koala::Facebook::API.new(oauth_token)
+  end
   #habtm educations, work_experiences, skillsets
 
   # accepts_nested_attributes_for all of them.

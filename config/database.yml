@@ -8,7 +8,7 @@ common: &common
 
 development:
   <<: *common
-  database: gadzet_development
+  database: highrer_development
 
 
 # Warning: The database defined as "test" will be erased and
@@ -17,15 +17,15 @@ development:
 
 test:
   <<: *common
-  database: gadzet_test
+  database: highrer_test
 
 staging:
   <<: *common
-  database: gadzet_staging
+  database: highrer_staging
 
 production:
   <<: *common
-  database: gadzet_production
+  database: highrer_production
 
 # development:
 #   adapter: sqlite3

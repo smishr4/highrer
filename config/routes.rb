@@ -11,8 +11,10 @@ Rails.application.routes.draw do
   root 'home#index'
 
   get '/user' => 'user_profile#show'
-  post '/search' => 'feed#paginate'
-  get '/search/:id' => 'feed#show'
+
+  post '/user/update' => 'user_profile#update'
+  post '/search/:skillset' => 'search#search_users'
+  get '/feed' => 'feed#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

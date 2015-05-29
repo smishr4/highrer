@@ -10,7 +10,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     end
 
     result=@user.myfacebook(@user.token).get_connections("me","friends",:fields=>"id")
-    friends_array=Hash[result.map(&:values).map(&:flatten)].keys
+    friends_array=Hash[result.map(&:values).map(&:flatten)].keys.join(',')
     User.update(@user.id, :friend_ids => friends_array)
 
 

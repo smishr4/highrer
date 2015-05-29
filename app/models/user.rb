@@ -70,4 +70,8 @@ class User < ActiveRecord::Base
     end
     res
   end
+  #habtm educations, work_experiences, skillsets
+
+  # accepts_nested_attributes_for all of them.
+
 end

@@ -41,8 +41,12 @@ define(function(require){
           var appContainer = $('.app-container');
           var loginContainer = $('.app-container');
 
-          var loggedIn = location.href.indexOf("session=true")!=-1;
+          var loggedIn = location.href.indexOf("session=")!=-1;
           if(loggedIn){
+            var url = location.href;
+            var token = url.substr(url.indexOf("session=")+8);
+            token = token.replace("#_=_", "");
+            window.authenticity_token = token;
             $.get('user', function(data){
               //eventImpl.publish('SHOW:APP', data);
               if(!data.type){

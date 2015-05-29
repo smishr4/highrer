@@ -4,6 +4,7 @@ define(function(require){
   var template = require('text!./profile.html');
   var eventImpl = require('eventImpl');
   var Handlebars = require('handlebars');
+  var css = require('css!./profile.css');
 
 
   var ProfileView = Backbone.View.extend({
@@ -26,6 +27,7 @@ define(function(require){
         url : 'user/update',
         method : 'post',
         data : ({
+          authenticity_token : authenticity_token,
           user: {
             type: 1
           }
@@ -45,6 +47,7 @@ define(function(require){
         url : 'user/update',
         method : 'post',
         data : ({
+          authenticity_token : authenticity_token,
           user: {
             type: 1
           }

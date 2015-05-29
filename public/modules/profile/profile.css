@@ -1,0 +1,22 @@
+.user-image{
+  width:200px;
+  height: 200px;
+  border-radius: 50%;
+  text-align: center;
+  display: block;
+  margin: 0 auto;
+}
+
+.details-section{
+  margin-top: 30px;
+  margin-bottom: 30px;
+  text-align:center;
+}
+
+.user-name{
+  font-size: 24px;
+}
+
+.email{
+  font-size: 14px;
+}

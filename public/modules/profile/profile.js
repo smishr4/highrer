@@ -16,6 +16,20 @@ define(function(require){
     render : function(data){
 
       this.$el.html(this.template(data));
+    },
+    events : {
+      'click .give' : 'giveReferences',
+      'click .want' : 'wantReferences'
+    },
+    giveReferences : function(){
+      require(['modules/feed/feed'], function(feedView){
+
+      });
+    },
+    wantReferences : function(){
+      require(['modules/feed/feed'], function(feedView){
+
+      });
     }
   });
 

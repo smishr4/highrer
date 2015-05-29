@@ -5,8 +5,10 @@ class SearchController < ApplicationController
 
   def search_users
     #params filters -> skillset
-    render json: Skillset.where(:name => params[:name]).first.users + Education.where(:degree => params[:degree]).first.users
+    render json: current_user.friends(params[:name])
   end
+
+
 
 
 end

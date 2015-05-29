@@ -1,0 +1,10 @@
+<%if current_user.blank?%>
+    <div class="jumbotron">
+      <center>
+        <h1>Welcome to Gadzet Admin Panel!</h1>
+        <br/><br/>
+        <p><a class="btn btn-primary btn-lg" href="/users/auth/facebook" role="button">Sign via Facebook</a></p>
+        <p><a class="btn btn-danger btn-lg" href="/users/auth/google_oauth2" role="button">&nbsp;&nbsp;Sign via Google&nbsp;&nbsp;</a></p>
+      </center>
+    </div>
+<%end%>

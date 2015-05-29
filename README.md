@@ -1,2 +1,0 @@
-# highrer
-rails beginner app

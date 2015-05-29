@@ -1,0 +1,32 @@
+common: &common
+  google:
+    api_key: "509333708432-duo5akah006j5kneubsvmuc9tfq16oh5.apps.googleusercontent.com"
+    api_secret: "M0_Trx-oZBKvXh6SnV8pV-Dz"
+  facebook:
+    api_key: "468833256565511"
+    api_secret: "0ecf34e9e62026f3a797731e264e664a"
+  url: "http://localhost:3000"
+
+development:
+  <<: *common
+
+test:
+  <<: *common
+
+production:
+  google:
+    api_key: "299132801543-86til0le9jql91mmot1292regme6u832.apps.googleusercontent.com"
+    api_secret: "KxYCqWbyNxmsAFud9J3NOQ2R"
+  facebook:
+    api_key: "534063423300486"
+    api_secret: "33ff5e48a3af3360312240226185e61b"
+  url: "http://gadzet.in"
+
+staging:
+  google:
+    api_key: "41706234745-nhk8htoelcb6mmsg6m13kkjde55s56k6.apps.googleusercontent.com"
+    api_secret: "RATN8RGG8PV42RhV2yV-sBID"
+  facebook:
+    api_key: "877612692278889"
+    api_secret: "7ed983b98e22784e79ea84fb17393242"
+  url: "http://gadzet.in"

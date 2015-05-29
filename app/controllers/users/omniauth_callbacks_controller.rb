@@ -11,7 +11,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     sign_in @user
 
     set_flash_message(:notice, :success, :kind => "Facebook") if is_navigational_format?
-    redirect_to "/index.html"
+    redirect_to "/?session=true"
   end
 
   def google_oauth2

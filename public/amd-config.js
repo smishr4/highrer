@@ -12,13 +12,17 @@ var require = {
 			text : 'bower_components/text/text',
 			swipe : 'bower_components/jquery-touchswipe/jquery.touchswipe.min',
 			eventImpl : 'modules/core/eventImpl',
-			material : 'vendor/material/js/base.min',
+			//materialUI : 'vendor/material/js/base.min',
+			materialUI : 'bower_components/material/js/base',
+			//materialVendor : 'bower_components/material/js/vendor',
+
 			sortable : 'bower_components/jquery-ui-sortable/jquery-ui-sortable.min',
-			Waves : 'vendor/waves/waves'
+			Waves : 'vendor/waves/waves',
+			bootstrap : 'bower_components/bootstrap/dist/js/bootstrap'
 		},
 		shim : {
 			'backbone' : {
-				deps : [ 'underscore', 'jquery' ],
+				deps : [ 'underscore', 'jquery'],
 				exports : 'Backbone'
 			},
 			'animate' : {
@@ -39,14 +43,16 @@ var require = {
 			'sortable' : {
 				deps : [ 'jquery' ]
 			},
-			material : {
-				deps : [ 'jquery', 'sortable', 'Waves' ],
-				exports : '$'
+			'materialUI' : {
+				deps : ['jquery', 'bootstrap', 'sortable', 'Waves']
+			},
+			bootstrap : {
+				deps : ['jquery']
 			}
 		},
 		waitSeconds : 60,
 		/* urlArgs: "v=0.25",  */
-		deps : ['app-bootstrap', ]
+		deps : ['app-bootstrap', 'materialUI']
 };
 
 

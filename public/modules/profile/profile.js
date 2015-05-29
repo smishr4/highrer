@@ -4,6 +4,7 @@ define(function(require){
   var template = require('text!./profile.html');
   var eventImpl = require('eventImpl');
   var Handlebars = require('handlebars');
+  var css = require('css!./profile.css');
 
 
   var ProfileView = Backbone.View.extend({
@@ -16,6 +17,51 @@ define(function(require){
     render : function(data){
 
       this.$el.html(this.template(data));
+    },
+    events : {
+      'click .give' : 'giveReferences',
+      'click .want' : 'wantReferences'
+    },
+    giveReferences : function(){
+      $.ajax({
+        url : 'user/update',
+        method : 'post',
+        data : ({
+          authenticity_token : authenticity_token,
+          user: {
+            type: 1
+          }
+        }),
+        success : function(){
+          require(['modules/app/app'], function(AppView){
+            var appView = new AppView({el : $('.app-container')});
+            appView.render();
+            _this.remove();
+          })
+        }
+      });
+    },
+    wantReferences : function(){
+      _this = this;
+      $.ajax({
+        url : 'user/update',
+        method : 'post',
+        data : ({
+          authenticity_token : authenticity_token,
+          user: {
+            type: 1
+          }
+        }),
+        success : function(){
+          require(['modules/app/app'], function(AppView){
+            var appView = new AppView({el : $('.app-container')});
+            appView.render();
+            _this.remove();
+          })
+        }
+      });
+
+
     }
   });
 

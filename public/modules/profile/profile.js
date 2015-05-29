@@ -22,14 +22,43 @@ define(function(require){
       'click .want' : 'wantReferences'
     },
     giveReferences : function(){
-      require(['modules/feed/feed'], function(feedView){
-
+      $.ajax({
+        url : 'user/update',
+        method : 'post',
+        data : ({
+          user: {
+            type: 1
+          }
+        }),
+        success : function(){
+          require(['modules/app/app'], function(AppView){
+            var appView = new AppView({el : $('.app-container')});
+            appView.render();
+            _this.remove();
+          })
+        }
       });
     },
     wantReferences : function(){
-      require(['modules/feed/feed'], function(feedView){
-
+      _this = this;
+      $.ajax({
+        url : 'user/update',
+        method : 'post',
+        data : ({
+          user: {
+            type: 1
+          }
+        }),
+        success : function(){
+          require(['modules/app/app'], function(AppView){
+            var appView = new AppView({el : $('.app-container')});
+            appView.render();
+            _this.remove();
+          })
+        }
       });
+
+
     }
   });
 

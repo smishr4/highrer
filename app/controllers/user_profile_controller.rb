@@ -12,6 +12,7 @@ class UserProfileController < ApplicationController
   end
 
   def update
+    debugger
     params[:user][:type] = params[:user][:type].to_i
     current_user.update_attributes(params[:user])
     render json: {message: 'OK'}, status: 200

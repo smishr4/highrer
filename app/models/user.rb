@@ -101,7 +101,6 @@ class User < ActiveRecord::Base
     where(:uid => :friend_ids)
   end
 
-
   #habtm educations, work_experiences, skillsets
 
   # accepts_nested_attributes_for all of them.

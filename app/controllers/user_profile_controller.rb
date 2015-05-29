@@ -2,7 +2,6 @@ class UserProfileController < ApplicationController
   before_action :authenticate_user!
 
   def show
-    debugger
     render json: current_user, status: 200
   end
 

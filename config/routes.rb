@@ -8,6 +8,9 @@ Rails.application.routes.draw do
     root 'home#index'
   end
   root 'home#index'
+
+  post '/search' => 'feed#paginate'
+  get '/search/:id' => 'feed#show'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

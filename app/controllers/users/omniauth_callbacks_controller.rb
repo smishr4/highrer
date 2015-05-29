@@ -11,22 +11,22 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     sign_in @user
 
     set_flash_message(:notice, :success, :kind => "Facebook") if is_navigational_format?
-    redirect_to "/"
+    render json: {message: 'OK', user: @user}, status: 200
   end
 
-  def google_oauth2
-    # You need to implement the method below in your model (e.g. app/models/user.rb)
-    @user = User.find_for_google_oauth2(request.env["omniauth.auth"], current_user)
+  # def google_oauth2
+  #   # You need to implement the method below in your model (e.g. app/models/user.rb)
+  #   @user = User.find_for_google_oauth2(request.env["omniauth.auth"], current_user)
 
-    if @user.persisted?
-      flash[:notice] = I18n.t "devise.omniauth_callbacks.success", :kind => "Google"
-      sign_in @user
-      redirect_to "/"
-    else
-      session["devise.google_data"] = request.env["omniauth.auth"]
-      redirect_to "/"
-    end
-  end
+  #   if @user.persisted?
+  #     flash[:notice] = I18n.t "devise.omniauth_callbacks.success", :kind => "Google"
+  #     sign_in @user
+  #     redirect_to "/"
+  #   else
+  #     session["devise.google_data"] = request.env["omniauth.auth"]
+  #     redirect_to "/"
+  #   end
+  # end
 
   def failure
     if request.env['REQUEST_PATH']=~/google/

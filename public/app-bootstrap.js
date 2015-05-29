@@ -2,6 +2,7 @@ define(function(require){
 
     var Login = require('modules/login/login');
     var App = require('modules/app/app');
+    var Profile = require('modules/profile/profile');
     var swipe = require('swipe');
     var Backbone = require('backbone');
     var $ = require('jquery');
@@ -44,7 +45,9 @@ define(function(require){
           var loggedIn = location.href.indexOf("session=true")!=-1;
           if(loggedIn){
             $.get('user', function(data){
-              eventImpl.publish('SHOW:APP', data);
+              //eventImpl.publish('SHOW:APP', data);
+              var profileView = new Profile({el : loginContainer});
+              profileView.render(data);
             });
           } else {
             new Login({el:loginContainer});

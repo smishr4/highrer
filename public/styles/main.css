@@ -133,3 +133,10 @@ body {
   text-align: right;
   padding-left: 70px;
 }
+
+.main-heading {
+  color: white;
+  font-size: 30px;
+  text-align: center;
+  vertical-align: center;
+}

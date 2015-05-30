@@ -4,8 +4,8 @@
         <%_.each(user_list, function(user){%>
             <a href='#' class='user' id='<%user.id%>'>
                 <li>
+                    <img style='height:100px' src="<%=user.profile_picture_url%>">
                     <%=user.first_name%>
-                    <%debugger%>
                     <img src="<%user.profile_picture_url%>">
                     <ul>
                         <%_.each(user.skillsets, function(skillset){%>

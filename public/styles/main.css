@@ -110,6 +110,7 @@ body {
 
 .zocial.facebook:before {
   content: "f";
+  font: 120%/1.65 zocial;
 }
 .zocial:before {
   content: "";

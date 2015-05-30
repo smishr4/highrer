@@ -13,7 +13,7 @@ var require = {
 			swipe : 'bower_components/jquery-touchswipe/jquery.touchswipe.min',
 			eventImpl : 'modules/core/eventImpl',
 			//materialUI : 'vendor/material/js/base.min',
-			materialUI : 'bower_components/material/js/base',
+			materialUI : 'vendor/material/js/base',
 			//materialVendor : 'bower_components/material/js/vendor',
 
 			sortable : 'bower_components/jquery-ui-sortable/jquery-ui-sortable.min',

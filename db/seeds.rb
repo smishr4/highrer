@@ -7,7 +7,9 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
-Skillset.create(:name => 'C++')
-Skillset.create(:name => 'Frontend')
-Skillset.create(:name => 'Backend')
-Skillset.create(:name => 'Full Stack')
+Skillset.create(:name => 'c++')
+Skillset.create(:name => 'frontend')
+Skillset.create(:name => 'backend')
+Skillset.create(:name => 'full stack')
+
+ActiveRecord::Base.connection.execute("INSERT INTO users_skillsets (user_id, skillset_id) VALUES (1, 1);");

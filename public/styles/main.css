@@ -110,6 +110,7 @@ body {
 
 .zocial.facebook:before {
   content: "f";
+  font: 120%/1.65 zocial;
 }
 .zocial:before {
   content: "";
@@ -132,4 +133,11 @@ body {
   height: 100%;
   text-align: right;
   padding-left: 70px;
+}
+
+.main-heading {
+  color: white;
+  font-size: 30px;
+  text-align: center;
+  vertical-align: center;
 }

@@ -36,7 +36,7 @@ define(function(require){
           require(['modules/app/app'], function(AppView){
             var appView = new AppView({el : $('.app-container')});
             appView.render();
-            _this.remove();
+            //_this.remove();
           })
         }
       });
@@ -56,7 +56,7 @@ define(function(require){
           require(['modules/app/app'], function(AppView){
             var appView = new AppView({el : $('.app-container')});
             appView.render();
-            _this.remove();
+            //_this.remove();
           })
         }
       });

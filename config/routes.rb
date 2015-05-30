@@ -17,6 +17,8 @@ Rails.application.routes.draw do
   post '/search' => 'search#search_users'
   get '/feed' => 'feed#index'
   get '/user/:id' => 'user_profile#show_other'
+
+  get '/get_tags' => 'search#get_tags'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

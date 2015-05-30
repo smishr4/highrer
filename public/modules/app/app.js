@@ -22,12 +22,13 @@ define(function(require){
 
 
     },
-    template : Hanndlebars.compile(template),
+    template : _.template(template),
     render : function(data){
       this.$el.html(this.template({user_list: []}))
     },
     events : {
-      'change .skills' : 'searchCandidates'
+      'change .skills' : 'searchCandidates',
+      'click .user' : 'showUserDetails'
     },
     searchCandidates : function(e){
       var skill = $(e.currentTarget).val();
@@ -42,7 +43,13 @@ define(function(require){
           alert(response.message)
         }
       })
-    }
+    },
+
+    showUserDetails: function(e) {
+      require(['modules/user_details/user_details'], function(user_details) {
+        var x = new user_details({id: e.target.id});
+      })
+    },
   });
   return AppView;
 })

@@ -14,8 +14,12 @@ Rails.application.routes.draw do
 
 
   post '/user/update' => 'user_profile#update'
-  post '/search/:skillset' => 'search#search_users'
+  get '/search/:name' => 'search#search_users'
   get '/feed' => 'feed#index'
+  get '/user/:id' => 'user_profile#show_other'
+
+  get '/get_tags' => 'search#get_tags'
+  delete 'users/sign_out' => 'devise/sessions#destroy'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

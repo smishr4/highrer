@@ -36,7 +36,7 @@ define(function(require){
           require(['modules/app/app'], function(AppView){
             var appView = new AppView({el : $('.app-container')});
             appView.render();
-            _this.remove();
+            //_this.remove();
           })
         }
       });
@@ -49,14 +49,14 @@ define(function(require){
         data : ({
           authenticity_token : authenticity_token,
           user: {
-            type: 1
+            type: 2
           }
         }),
         success : function(){
           require(['modules/app/app'], function(AppView){
             var appView = new AppView({el : $('.app-container')});
             appView.render();
-            _this.remove();
+            //_this.remove();
           })
         }
       });

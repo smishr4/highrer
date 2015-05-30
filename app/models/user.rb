@@ -81,14 +81,10 @@ class User < ActiveRecord::Base
 
   def to_small_hash
     {
+      first_name: self.first_name,
       skillsets: self.skillsets,
+      profile_picture_url: self.profile_picture_url,
       id: self.id,
-    }
-  end
-
-  def self.mini_collection
-    collect{|user|
-      user.to_small_hash
     }
   end
 
@@ -100,14 +96,15 @@ class User < ActiveRecord::Base
       first_name: self.first_name,
       last_name: self.last_name,
       profile_picture_url: self.profile_picture_url,
-      type: self.type,
+      type: self.user_type,
     }
   end
 
   def friends(skillset)
     # ids = (self.friend_ids.split(',') + User.where(:uid => self.friend_ids.split(',')).pluck(:friend_ids).split(',')).uniq.reject{|uid| if !Skillset.find_by_name(skillset).users.pluck(:id).include?(uid)}
-    ids = self.friend_ids + User.where(:uid => self.friend_ids.split(',')).pluck(:friend_ids).join(',').split(',')
-    User.where(:uid => ids, :type => self.type == 1 ? 2 : 1).mini_collection
+    ids = [{level: 1, friend_ids: self.friend_ids.split(',')}, {level: 2, friend_ids: User.where(:uid => self.friend_ids.split(',')).pluck(:friend_ids).join(',').split(',')}]
+    # User.where(:uid => ids.collect{|id| id[:friend_ids]}.flatten.uniq, :user_type => self.user_type == 1 ? 2 : 1).reject{|user| !user.skillsets.pluck(:name).include?(skillset) }.collect{|user| user.to_small_hash}
+    User.where(:uid => ids[0][:friend_ids], :user_type => self.user_type == 1 ? 2 : 1).reject{|user| !user.skillsets.pluck(:name).include?(skillset) }.collect{|x| x.to_hash}.each{|x| x[:level] = 1} + User.where(:uid => ids[1][:friend_ids]).reject{|user| !user.skillsets.pluck(:name).include?(skillset) }.collect{|x| x.to_hash}.each{|x| x[:level] = 2}
   end
 
   #habtm educations, work_experiences, skillsets

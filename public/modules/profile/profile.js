@@ -30,8 +30,8 @@ define(function(require){
           authenticity_token : authenticity_token,
           user: {
             type: 1,
-            names : $('.skills').val()
-          }
+          },
+          names : $('.skills').val()
         }),
         success : function(){
           require(['modules/app/app'], function(AppView){
@@ -51,8 +51,8 @@ define(function(require){
           authenticity_token : authenticity_token,
           user: {
             type: 2,
-            names : $('.skills').val()
-          }
+          },
+          names : $('.skills').val()
         }),
         success : function(){
           require(['modules/app/app'], function(AppView){

@@ -12,8 +12,8 @@ class UserProfileController < ApplicationController
   end
 
   def update
+    current_user.skillsets.delete_all
     params[:names].each{|name|
-      current_user.skillsets.delete_all
       current_user.skillsets.create(:name => name)
     }
     current_user.user_type = params[:user][:type].to_i

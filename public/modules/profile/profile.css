@@ -20,3 +20,9 @@
 .email{
   font-size: 14px;
 }
+
+.want, .give{
+  height: 50px;
+  padding-top: 13px!important;
+  margin:10px;
+}

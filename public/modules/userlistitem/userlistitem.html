@@ -6,6 +6,7 @@
                 <li>
                     <img style='height:100px' src="<%=user.profile_picture_url%>">
                     <%=user.first_name%>
+                    <img src="<%user.profile_picture_url%>">
                     <ul>
                         <%_.each(user.skillsets, function(skillset){%>
                             <li>

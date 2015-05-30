@@ -29,7 +29,8 @@ define(function(require){
         data : ({
           authenticity_token : authenticity_token,
           user: {
-            type: 1
+            type: 1,
+            names : $('.skills').val()
           }
         }),
         success : function(){
@@ -49,7 +50,8 @@ define(function(require){
         data : ({
           authenticity_token : authenticity_token,
           user: {
-            type: 2
+            type: 2,
+            names : $('.skills').val()
           }
         }),
         success : function(){

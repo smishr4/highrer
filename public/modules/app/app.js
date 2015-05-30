@@ -4,6 +4,7 @@ define(function(require){
   var Backbone = require('backbone');
   var eventImpl = require('eventImpl');
   var template = require('text!./app.html');
+  var css = require("css!./app.css")
 
   var AppView = Backbone.View.extend({
     initialize : function(options){
@@ -24,6 +25,12 @@ define(function(require){
     template : Hanndlebars.compile(template),
     render : function(data){
       this.$el.html(this.template())
+    },
+    events : {
+      'change .skills' : 'searchCandidates'
+    },
+    searchCandidates : function(e){
+      var skillId = $(e.currentTarget).val();
     }
   });
   return AppView;

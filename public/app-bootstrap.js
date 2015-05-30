@@ -1,7 +1,7 @@
 define(function(require){
 
     var Login = require('modules/login/login');
-    var App = require('modules/app/app');
+    var Profile = require('modules/profile/profile');
     var swipe = require('swipe');
     var Backbone = require('backbone');
     var $ = require('jquery');
@@ -38,13 +38,24 @@ define(function(require){
             this.render(options);
         },
         render : function(data){
-          var container = $('.app-container');
+          var appContainer = $('.app-container');
           var loginContainer = $('.app-container');
-          var appView = new App({el:container});
-          var loggedIn = location.href.indexOf("session=true")!=-1;
+
+          var loggedIn = location.href.indexOf("session=")!=-1;
           if(loggedIn){
+            var url = location.href;
+            var token = url.substr(url.indexOf("session=")+8);
+            token = token.replace("#_=_", "");
+            window.authenticity_token = token;
             $.get('user', function(data){
-              eventImpl.publish('SHOW:APP', data);
+              //eventImpl.publish('SHOW:APP', data);
+              if(!data.type){
+                var profileView = new Profile({el : loginContainer});
+                profileView.render(data);
+              } else {
+                var appView = new App({el:appContainer});
+                //appView.render();
+              }
             });
           } else {
             new Login({el:loginContainer});

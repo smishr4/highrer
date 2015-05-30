@@ -11,7 +11,9 @@
     "handlebars": "~3.0.3",
     "require-css": "~0.1.8",
     "text": "~2.0.14",
-    "jquery-ui-sortable": "*"
+    "jquery-ui-sortable": "*",
+    "material": "git@github.com:devel-pa/material.git",
+    "bootstrap": "~3.3.4"
   },
   "devDependencies": {}
 }

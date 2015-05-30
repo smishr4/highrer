@@ -10,18 +10,10 @@ define(function(require){
       var _this = this;
       this.$el = options.el;
        eventImpl.subscribe('SHOW:APP', function(data){
-        var firstTimeUser = true;
-        if(firstTimeUser){
-          require(['modules/profile/profile'], function(Profile){
-            var profileView = new Profile({ el : _this.$('.app-child-container')});
-            profileView.render(data);
-          });
-        } else {
-          require(['modules/feed/feed'], function(){
-            var feedView = new Feed({el : _this.$('.app-child-container')});
-            feedView.render(data)
-          });
-        }
+        require(['modules/feed/feed'], function(){
+          var feedView = new Feed({el : _this.$('.app-child-container')});
+          feedView.render(data)
+        });
        });
 
 

@@ -1,11 +1,15 @@
 <section>
   <div class="row">
     <div>
-      <img src="{{profile_picture_url}}" class="col-centered" style="display:block;border-radius:50%;">
+      <img class="user-image" src="{{profile_picture_url}}" class="col-centered" style="display:block;border-radius:50%;">
     </div>
   </div>
+  <div class="row details-section">
+      <div class="col-sm-12 user-name">{{first_name}} {{last_name}}</div>
+      <div class="col-sm-12 email">{{email}}</div>
+  </div>
   <div class="row">
-      <div class="col-sm-12">{{first_name}} {{last_name}}</div>
-      <div class="col-sm-12">{{email}}</div>
+    <a class="btn btn-purple waves-button waves-effect waves-light give">I want to give references</a>
+    <a class="btn btn-blue waves-button waves-effect waves-light want">I am looking for references</a>
   </div>
 </section>

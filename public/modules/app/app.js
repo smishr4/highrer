@@ -30,12 +30,11 @@ define(function(require){
       'change .skills' : 'searchCandidates'
     },
     searchCandidates : function(e){
-      var skillId = $(e.currentTarget).val();
+      var skill = $(e.currentTarget).val();
       $.ajax({
-        url: ,
-        type: ,
-        dataType: ,
-        data: ,
+        url: '/search/' + skill,
+        type: 'POST',
+        dataType: 'JSON',
         success: function(data, response, options) {
           this.$el.html({user_list: data})
         },

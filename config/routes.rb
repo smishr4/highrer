@@ -14,7 +14,7 @@ Rails.application.routes.draw do
 
 
   post '/user/update' => 'user_profile#update'
-  post '/search' => 'search#search_users'
+  get '/search/:name' => 'search#search_users'
   get '/feed' => 'feed#index'
   get '/user/:id' => 'user_profile#show_other'
 

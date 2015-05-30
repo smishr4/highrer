@@ -994,5 +994,23 @@
                     </div>
                 </div>
             </div> -->
+
+            <%if(user_list != [])%>
+                <ul>
+                    <%_.each(user_list, function(user){%>
+                        <li>
+                            <%=user.name%>
+                            <img src="<%user.profile_picture_url%>">
+                            <ul>
+                                <%_.each(user.skillsets, function(skillset){%>
+                                    <li>
+                                        <%=skillset.name%>
+                                    </li>
+                                <%})%>
+                            </ul>
+
+                        </li>
+                    <%})%>
+                </ul>
         </div>
     </div>

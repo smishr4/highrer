@@ -24,13 +24,25 @@ define(function(require){
     },
     template : Hanndlebars.compile(template),
     render : function(data){
-      this.$el.html(this.template())
+      this.$el.html(this.template({user_list: []}))
     },
     events : {
       'change .skills' : 'searchCandidates'
     },
     searchCandidates : function(e){
       var skillId = $(e.currentTarget).val();
+      $.ajax({
+        url: ,
+        type: ,
+        dataType: ,
+        data: ,
+        success: function(data, response, options) {
+          this.$el.html({user_list: data})
+        },
+        error: function(data, response, options) {
+          alert(response.message)
+        }
+      })
     }
   });
   return AppView;

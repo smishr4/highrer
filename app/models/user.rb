@@ -83,6 +83,7 @@ class User < ActiveRecord::Base
     {
       first_name: self.first_name,
       skillsets: self.skillsets,
+      profile_picture_url: self.profile_picture_url,
       id: self.id,
     }
   end

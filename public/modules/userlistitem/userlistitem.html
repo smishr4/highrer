@@ -1,0 +1,21 @@
+<div id="container">
+    <%if(user_list != [])%>
+    <ul>
+        <%_.each(user_list, function(user){%>
+            <a href='#' class='user' id='<%user.id%>'>
+                <li>
+                    <%=user.first_name%>
+                    <img src="<%user.profile_picture_url%>">
+                    <ul>
+                        <%_.each(user.skillsets, function(skillset){%>
+                            <li>
+                                <%=skillset.name%>
+                            </li>
+                        <%})%>
+                    </ul>
+
+                </li>
+            </a>
+        <%})%>
+    </ul>
+</div>

@@ -16,28 +16,28 @@ define(function(require){
           feedView.render(data)
         });
        });
-
-
       this.render();
-
-
     },
     template : _.template(template),
     render : function(data){
       this.$el.html(this.template({user_list: []}))
     },
     events : {
-      'change .skills' : 'searchCandidates',
-      'click .user' : 'showUserDetails'
+      'change .skill' : 'searchCandidates',
+      'click .user' : 'showUserDetails',
+      'click .logout-link' : 'logout'
     },
     searchCandidates : function(e){
       var skill = $(e.currentTarget).val();
+      var _this = this
       $.ajax({
         url: '/search/' + skill,
-        type: 'POST',
+        type: 'GET',
         dataType: 'JSON',
         success: function(data, response, options) {
-          this.$el.html({user_list: data})
+          require(['modules/userlistitem/userlistitem'], function(userlistitem) {
+            var x = new userlistitem({data: data, el : this.$('#list')});
+          })
         },
         error: function(data, response, options) {
           alert(response.message)
@@ -50,6 +50,11 @@ define(function(require){
         var x = new user_details({id: e.target.id});
       })
     },
+    logout : function(){
+      $.ajax({
+        url : 'user/logout'
+      })
+    }
   });
   return AppView;
 })

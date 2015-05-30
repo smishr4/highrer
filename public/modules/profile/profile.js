@@ -49,7 +49,7 @@ define(function(require){
         data : ({
           authenticity_token : authenticity_token,
           user: {
-            type: 1
+            type: 2
           }
         }),
         success : function(){

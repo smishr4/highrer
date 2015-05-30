@@ -2,7 +2,7 @@ common: &common
   facebook:
     api_key: "468833256565511"
     api_secret: "0ecf34e9e62026f3a797731e264e664a"
-  url: "http://localhost:3000"
+  url: "http://52.74.158.21:3002"
 
 development:
   <<: *common

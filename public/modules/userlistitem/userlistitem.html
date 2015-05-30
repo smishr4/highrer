@@ -5,6 +5,7 @@
             <a href='#' class='user' id='<%user.id%>'>
                 <li>
                     <%=user.first_name%>
+                    <%debugger%>
                     <img src="<%user.profile_picture_url%>">
                     <ul>
                         <%_.each(user.skillsets, function(skillset){%>

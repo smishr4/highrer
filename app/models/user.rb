@@ -107,7 +107,9 @@ class User < ActiveRecord::Base
   def friends(skillset)
     # ids = (self.friend_ids.split(',') + User.where(:uid => self.friend_ids.split(',')).pluck(:friend_ids).split(',')).uniq.reject{|uid| if !Skillset.find_by_name(skillset).users.pluck(:id).include?(uid)}
     ids = self.friend_ids + User.where(:uid => self.friend_ids.split(',')).pluck(:friend_ids).join(',').split(',')
-    User.where(:uid => ids, :type => self.type == 1 ? 2 : 1).mini_collection
+    User.where(:uid => ids, :type => self.type == 1 ? 2 : 1).reject{|user|
+       !user.skillsets.pluck(:name).include?(skillset)
+      }.mini_collection
   end
 
   #habtm educations, work_experiences, skillsets

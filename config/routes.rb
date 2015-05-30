@@ -19,7 +19,10 @@ Rails.application.routes.draw do
   get '/user/:id' => 'user_profile#show_other'
 
   get '/get_tags' => 'search#get_tags'
-  delete 'users/sign_out' => 'devise/sessions#destroy'
+
+  devise_scope :user do
+    match '/users/sign_out' => 'devise/sessions#destroy', :as => :destroy_user_session, via: [:get, :delete]
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

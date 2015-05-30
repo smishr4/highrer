@@ -81,14 +81,9 @@ class User < ActiveRecord::Base
 
   def to_small_hash
     {
+      first_name: self.first_name,
       skillsets: self.skillsets,
       id: self.id,
-    }
-  end
-
-  def self.mini_collection
-    collect{|user|
-      user.to_small_hash
     }
   end
 
@@ -106,10 +101,8 @@ class User < ActiveRecord::Base
 
   def friends(skillset)
     # ids = (self.friend_ids.split(',') + User.where(:uid => self.friend_ids.split(',')).pluck(:friend_ids).split(',')).uniq.reject{|uid| if !Skillset.find_by_name(skillset).users.pluck(:id).include?(uid)}
-    ids = self.friend_ids + User.where(:uid => self.friend_ids.split(',')).pluck(:friend_ids).join(',').split(',')
-    User.where(:uid => ids, :type => self.type == 1 ? 2 : 1).reject{|user|
-       !user.skillsets.pluck(:name).include?(skillset)
-      }.mini_collection
+    ids = self.friend_ids + ',' + User.where(:uid => self.friend_ids.split(',')).pluck(:friend_ids).join(',')
+    User.where(:uid => ids.split(',').uniq, :user_type => self.user_type == 1 ? 2 : 1).reject{|user| !user.skillsets.pluck(:name).include?(skillset) }.collect{|user| user.to_small_hash}
   end
 
   #habtm educations, work_experiences, skillsets

@@ -165,7 +165,7 @@
                 <div class="row">
                     <div class="col-lg-6 col-sm-8">
                         <label class="floating-label" for="float-select">Select Skill</label>
-                        <select class="form-control" id="float-select" class="skill">
+                        <select class="form-control skill" id="float-select" >
                             <option value="">&nbsp;</option>
                             <option value="c++">C++</option>
                             <option value="frontend">Frontend</option>
@@ -995,24 +995,8 @@
                 </div>
             </div> -->
 
-            <%if(user_list != [])%>
-                <ul>
-                    <%_.each(user_list, function(user){%>
-                        <a href='#' class='user' id='<%user.id%>'>
-                            <li>
-                                <%=user.name%>
-                                <img src="<%user.profile_picture_url%>">
-                                <ul>
-                                    <%_.each(user.skillsets, function(skillset){%>
-                                        <li>
-                                            <%=skillset.name%>
-                                        </li>
-                                    <%})%>
-                                </ul>
 
-                            </li>
-                        </a>
-                    <%})%>
-                </ul>
         </div>
+
+        <div id='list'></div>
     </div>
